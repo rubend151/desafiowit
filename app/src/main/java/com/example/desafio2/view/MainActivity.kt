@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.desafio2.Global.Api
 import com.example.desafio2.R
 import com.example.desafio2.adapters.CityAdapter
 import com.example.desafio2.databinding.ActivityMainBinding
@@ -132,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                     CacheControl.Builder()
                         .maxAge(120, TimeUnit.SECONDS)
                         .build())
-                .url("https://api.openweathermap.org/data/2.5/weather?lat=" + location.latitude + "&lon=" + location.longitude +"&appid=74c2fc6a09f763f53da469afaa7294cb&units=metric")
+                .url("https://api.openweathermap.org/data/2.5/weather?lat=" + location.latitude + "&lon=" + location.longitude +"&appid=" + Api.KEY + "&units=metric")
                 .build()
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {

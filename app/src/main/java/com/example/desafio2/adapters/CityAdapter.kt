@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.desafio2.Global.Api
 import com.example.desafio2.Global.Intents
 import com.example.desafio2.R
 import com.example.desafio2.model.City
@@ -52,7 +53,7 @@ class CityAdapter(
                     .cacheControl(CacheControl.Builder()
                         .maxAge(120, TimeUnit.SECONDS)
                         .build())
-                    .url("https://api.openweathermap.org/data/2.5/weather?q=" + city.label + "&appid=74c2fc6a09f763f53da469afaa7294cb&units=metric")
+                    .url("https://api.openweathermap.org/data/2.5/weather?q=" + city.label + "&appid=" + Api.KEY +"&units=metric")
                     .build()
                 client.newCall(request).enqueue(object : Callback {
                     override fun onFailure(call: Call, e: IOException) {
